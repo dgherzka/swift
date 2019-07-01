@@ -149,3 +149,6 @@ undefinedFunc() // expected-error {{use of unresolved identifier 'undefinedFunc'
 #else
 if true {}
 #endif // OK
+
+#if os(simulator) // expected-warning {{unknown operating system for build configuration 'os'}} expected-note{{did you mean 'targetEnvironment'?}} {{4-6=targetEnvironment}}
+#endif
